@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# [submodule "202102_study_nomflix"] 
+# path = 202102_study_nomflix 
+# url = https://github.com/bokjk/202102_study_nomflix
+
+
+
 # dependencies
 /node_modules
 /.pnp
@@ -21,3 +27,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+
