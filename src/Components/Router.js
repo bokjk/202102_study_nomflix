@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter as Router, Route} from "react-router-dom";
+import {HashRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 // import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 
 import Header from 'Components/Header';
@@ -12,7 +12,6 @@ import Search from "Routes/Search";
 import Detail from "Routes/Detail";
 
 export default () => (
-    // <Router basename={process.env.PUBLIC_URL}>
     <Router>
         <Header />
         <Switch>
