@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://bokjk.github.io/202102_study_nomflix",
+  "homepage": "https://modest-mestorf-6ca79c.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
