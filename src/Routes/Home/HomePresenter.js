@@ -1,0 +1,89 @@
+import React from "react";
+import PropTypes from 'prop-types'; // 타입스트립트처럼 타입을 체크해줌
+import styled from 'styled-components';
+import Helmet from "react-helmet";
+
+import Loader from 'Components/Loader';
+import Section from 'Components/Section';
+import Message from 'Components/Message';
+import Poster from 'Components/Poster';
+
+const Container = styled.div`
+  padding: 20px;
+`;
+
+const HomePresenter = ({ nowPlaying, upComming, popular, error, loading }) =>
+loading ? (
+  <>
+    <Helmet>
+      <title>Loading | Jangflix</title>
+    </Helmet>
+    <Loader />
+  </>
+  ) :
+  <Container>
+    { nowPlaying && nowPlaying.length > 0 && (
+        <Section title="Now Playing">
+          {nowPlaying.map(movie => (
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title = {movie.title}
+              rating = {movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie = {true}
+            >
+              {movie.title}
+            </Poster>
+          ))
+          }
+        </Section>
+    )}
+    { upComming && upComming.length > 0 && (
+        <Section title="UpComming">
+          {upComming.map(movie => ( 
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title = {movie.title}
+              rating = {movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie = {true}
+            >
+              {movie.title}
+            </Poster>
+          ))}
+        </Section>
+    )} 
+    { popular && popular.length > 0 && (
+        <Section title="Popular">
+          {popular.map(movie => (
+            <Poster
+              key={movie.id}
+              id={movie.id}
+              imageUrl={movie.poster_path}
+              title = {movie.title}
+              rating = {movie.vote_average}
+              year={movie.release_date.substring(0, 4)}
+              isMovie = {true}
+            >
+              {movie.title}
+            </Poster>
+          ))}
+        </Section>
+    )}
+    {error && <Message color="#e74c3c" text={error} />}
+  </Container>;
+
+HomePresenter.propTypes = {
+  nowPlaying : PropTypes.array,
+  upComming : PropTypes.array,
+  popular : PropTypes.array,
+  loading : PropTypes.bool.isRequired,
+  error : PropTypes.string 
+}
+
+
+export default HomePresenter; 
