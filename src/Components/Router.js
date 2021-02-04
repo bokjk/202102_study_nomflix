@@ -12,7 +12,8 @@ import Search from "Routes/Search";
 import Detail from "Routes/Detail";
 
 export default () => (
-    <Router basename={process.env.PUBLIC_URL}>
+    // <Router basename={process.env.PUBLIC_URL}>
+    <Router>
         <Header />
         <Switch>
             <Route path="/" exact component={Home}/>
